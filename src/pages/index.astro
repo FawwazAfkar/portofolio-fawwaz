@@ -27,13 +27,13 @@ try {
 }
 ---
 <Layout title="Fawwaz Afkar Muzakky - Portfolio">
-	<section class="min-h-[80vh] flex items-center bg-white">
+	<section id="hero" class="min-h-[80vh] flex items-center bg-white">
 		<div class="container mx-auto px-4">
 		  <div class="grid md:grid-cols-2 gap-8 items-center">
 			<div class="text-left">
 			  <span class="font-semibold text-sky-600">Halo, saya</span>
 			  <h1 class="text-5xl md:text-6xl font-bold mt-2">FAWWAZ AFKAR MUZAKKY</h1>
-			  <p class="mt-4 text-lg text-gray-600 max-w-lg">Mahasiswa Informatika yang berfokus pada pengembangan web dan mobile, dengan pengalaman praktis menggunakan Laravel, Flutter, dan Ionic.</p>
+			  <p class="mt-4 text-lg text-gray-600 max-w-lg">Mahasiswa Informatika yang memiliki minat dan fokus pada pengembangan aplikasi web, mobile, serta IoT, dengan pengalaman praktis menggunakan Framework terkini.</p>
 			  <div class="mt-8">
 				<a href="/FAWWAZ AFKAR MUZAKKY - CV.pdf" download class="bg-sky-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-sky-600 transition-transform transform hover:scale-105 inline-block">
 				  Unduh CV Saya
@@ -55,7 +55,7 @@ try {
 	  <div class="grid md:grid-cols-2 gap-12 items-center">
 		<div>
 		  <h3 class="text-2xl font-semibold mb-4">Profil</h3>
-		  <p class="text-gray-600 leading-relaxed">Saya memiliki pemahaman yang baik dalam pengelolaan proyek TI, perancangan antarmuka pengguna, serta pengujian dan dokumentasi sistem. Saya terbiasa bekerja secara kolaboratif maupun mandiri, dengan kemampuan komunikasi teknis yang baik dan kedisiplinan tinggi. Saya juga tertarik dalam eksplorasi teknologi baru dan penerapan rekayasa perangkat lunak di dunia nyata.</p>
+		  <p class="text-gray-600 leading-relaxed">Saya memiliki pemahaman yang cukup baik dalam pengelolaan proyek Teknologi Informasi, perancangan antarmuka pengguna, serta pengujian dan dokumentasi sistem. Saya terbiasa bekerja secara kolaboratif maupun mandiri, dengan kemampuan komunikasi teknis yang baik dan kedisiplinan tinggi. Saya juga tertarik dalam eksplorasi teknologi baru dan penerapan rekayasa perangkat lunak di dunia nyata.</p>
 		</div>
 		<div>
 		  <h3 class="text-2xl font-semibold mb-4">Hard & Software Skills</h3>
@@ -143,7 +143,7 @@ try {
 		  ))
 		) : (
 		  <p class="col-span-full text-center text-gray-500">
-			Gagal memuat proyek dari GitHub atau belum ada proyek untuk ditampilkan.
+			Gagal memuat proyek dari GitHub, ketuk opsi dibawah untuk melihat semua proyek.
 		  </p>
 		)}
   
@@ -164,7 +164,7 @@ try {
 		<div class="mb-12 relative flex gap-6">
 		  <div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
 		  <div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
-			<img src="/images/logo-unsoed.png" alt="Logo Unsoed" class="w-12 h-12 object-contain">
+			<img src="/images/hmifunsoed.png" alt="Logo HMIF Unsoed" class="w-12 h-12 object-contain">
 		  </div>
 		  <div>
 			<p class="text-sm text-gray-500">2024 - 2025</p>
@@ -180,7 +180,7 @@ try {
 		<div class="mb-12 relative flex gap-6">
 		  <div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
 		  <div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
-			<img src="/images/logo-dinas.png" alt="Logo Dinas Arsip" class="w-12 h-12 object-contain">
+			<img src="/images/banyumas.png" alt="Logo Dinas Arsip" class="w-12 h-12 object-contain">
 		  </div>
 		  <div>
 			<p class="text-sm text-gray-500">Juli 2024 - Agustus 2024</p>
@@ -196,7 +196,7 @@ try {
 		<div class="mb-12 relative flex gap-6">
 			<div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
 			<div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
-			  <img src="/images/logo-unsoed.png" alt="Logo Unsoed" class="w-12 h-12 object-contain">
+			  <img src="/images/labinforunsoed.jpg" alt="Logo Lab Informatika" class="w-12 h-12 object-contain">
 			</div>
 			<div>
 			  <p class="text-sm text-gray-500">September 2024 - Desember 2024</p>
@@ -212,7 +212,7 @@ try {
 		<div class="mb-12 relative flex gap-6">
 			<div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
 			<div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
-			  <img src="/images/logo-unsoed.png" alt="Logo Unsoed" class="w-12 h-12 object-contain">
+			  <img src="/images/labinforunsoed.jpg" alt="Logo Lab Informatika" class="w-12 h-12 object-contain">
 			</div>
 			<div>
 			  <p class="text-sm text-gray-500">Februari 2024 - Juni 2024</p>
@@ -228,34 +228,69 @@ try {
 		</div>
 	</div>
   </section>
-  <section id="certificates" class="py-20">
+  <section id="certificates" class="py-20 bg-gray-50 overflow-hidden">
 	<div class="container mx-auto px-4">
 	  <h2 class="text-4xl font-bold text-center mb-16">Sertifikasi & Pelatihan</h2>
-	  <div class="flex justify-center">
-		<div class="group">
-		  <a href="/certificates/tsacyber.png" target="_blank">
-			<img src="/certificates/tsacyber.png" alt="Sertifikat TSA Cyber Champion" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
-		  </a>
-		  <div class="mt-4 text-center">
-			<h3 class="font-semibold text-lg">TSA - Cyber Champion Talent Scouting Academy</h3>
-			<p class="text-gray-600">Pusbang Proserti KOMINFO, 2024</p>
+	  
+	  <div class="swiper certificate-swiper relative">
+		<div class="swiper-wrapper">
+		  
+		  <div class="swiper-slide">
+			<div class="group">
+			  <a href="/certificates/tsacyber.png" target="_blank">
+				<img src="/certificates/tsacyber.png" alt="Sertifikat TSA Cyber Champion" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
+			  </a>
+			  <div class="mt-4 text-center">
+				<h3 class="font-semibold text-lg">TSA - Cyber Champion Talent Scouting Academy</h3>
+				<p class="text-gray-600">Pusbang Proserti KOMINFO, 2024</p>
+			  </div>
+			</div>
+		  </div>
+  
+		  <div class="swiper-slide">
+			<div class="group">
+			  <a href="/certificates/uiuxcomp.png" target="_blank">
+				<img src="/certificates/uiuxcomp.png" alt="Sertifikat Lomba UI/UX" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
+			  </a>
+			  <div class="mt-4 text-center">
+				<h3 class="font-semibold text-lg">Mobile UI/UX Competition</h3>
+				<p class="text-gray-600">DCC HM-DTI, 2025</p>
+			  </div>
+			</div>
+		  </div>
+  
+		  <div class="swiper-slide">
+			<div class="group">
+			  <a href="/certificates/asprakso.png" target="_blank">
+				<img src="/certificates/asprakso.png" alt="Asprak SO" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
+			  </a>
+			  <div class="mt-4 text-center">
+				<h3 class="font-semibold text-lg">Asisten Praktikum Sistem Operasi</h3>
+				<p class="text-gray-600">Informatika Unsoed, 2024</p>
+			  </div>
+			</div>
+		  </div>
+		  <div class="swiper-slide">
+			<div class="group">
+			  <a href="/certificates/asprakweb.png" target="_blank">
+				<img src="/certificates/asprakweb.png" alt="Asprak Web" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
+			  </a>
+			  <div class="mt-4 text-center">
+				<h3 class="font-semibold text-lg">Asisten Praktikum Pemrograman Web</h3>
+				<p class="text-gray-600">Jurusan Informatika UNSOED, 2024</p>
+			  </div>
+			</div>
 		  </div>
 		</div>
-		<div class="group ml-8">
-		<a href="/certificates/tsacyber.png" target="_blank">
-			<img src="/certificates/tsacyber.png" alt="Sertifikat TSA Coding" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
-		</a>
-		  <div class="mt-4 text-center">
-			<h3 class="font-semibold text-lg">TSA - Coding Talent Scouting Academy</h3>
-			<p class="text-gray-600">Pusbang Proserti KOMINFO, 2024</p>
-		  </div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
 	  </div>
 	</div>
   </section>
   <section id="contact" class="py-20 bg-gray-50">
 	<div class="container mx-auto px-4 text-center">
-	  <h2 class="text-4xl font-bold">Mari Terhubung</h2>
-	  <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Saya terbuka untuk diskusi mengenai peluang magang atau kolaborasi proyek.</p>
+	  <h2 class="text-4xl font-bold">Kontak Saya</h2>
+	  <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Saya terbuka untuk diskusi mengenai kerjasama atau kolaborasi dalam proyek atau pekerjaan lainnya. Hubungi saya dengan opsi dibawah ini.</p>
 	  
 	  <div class="mt-8 flex justify-center gap-6">
 		
@@ -276,3 +311,67 @@ try {
   </section>
 
   </Layout>
+
+  <style is:global>
+	.certificate-swiper {
+	  width: 100%;
+	  padding-top: 50px;
+	  padding-bottom: 50px;
+	}
+  
+	.certificate-swiper .swiper-slide {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 60%; /* Lebar slide utama di tengah */
+	  transition: filter 0.5s ease, transform 0.5s ease;
+	  filter: blur(4px); /* Efek blur default untuk slide di samping */
+	  transform: scale(0.8); /* Ukuran lebih kecil untuk slide di samping */
+	}
+  
+	.certificate-swiper .swiper-slide-active {
+	  filter: blur(0); /* Hapus blur untuk slide aktif */
+	  transform: scale(1); /* Ukuran normal untuk slide aktif */
+	}
+  
+	/* Atur agar area klik hanya pada gambar di tengah */
+	.certificate-swiper .swiper-slide:not(.swiper-slide-active) a {
+	  pointer-events: none;
+	}
+  
+	/* Styling Tombol Navigasi */
+	.swiper-button-next,
+	.swiper-button-prev {
+	  color: #0ea5e9; /* Warna biru langit (sky blue) */
+	  top: 50%;
+	  transform: translateY(-50%);
+	}
+  </style>
+  
+  <script>
+	import Swiper from 'swiper';
+	import { Navigation, EffectCoverflow } from 'swiper/modules';
+	import 'swiper/css';
+	import 'swiper/css/navigation';
+	import 'swiper/css/effect-coverflow';
+  
+	const swiper = new Swiper('.certificate-swiper', {
+	  modules: [Navigation, EffectCoverflow],
+	  effect: 'coverflow',
+	  grabCursor: true,
+	  centeredSlides: true,
+	  slidesPerView: 'auto', // Otomatis menyesuaikan jumlah slide yang terlihat
+	  loop: true, // Membuatnya infinite scroll
+	  coverflowEffect: {
+		rotate: 0,
+		stretch: 80,
+		depth: 200,
+		modifier: 1,
+		slideShadows: false,
+	  },
+	  navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	  },
+	});
+  </script>
