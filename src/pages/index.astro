@@ -1,0 +1,278 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+interface GitHubRepo {
+  name: string;
+  html_url: string;
+  description: string | null; // description bisa jadi null
+  topics: string[];
+}
+
+let repos: GitHubRepo[] = []; // Inisialisasi sebagai array kosong
+try {
+    const response = await fetch('https://api.github.com/users/FawwazAfkar/repos?sort=updated&per_page=6');
+    if (response.ok) {
+        const data = await response.json();
+        // Pastikan data yang diterima adalah array
+        if (Array.isArray(data)) {
+            repos = data;
+        }
+    } else {
+        console.error('GitHub API request failed:', response.statusText);
+    }
+} catch (error) {
+    console.error('Failed to fetch from GitHub API:', error);
+}
+---
+<Layout title="Fawwaz Afkar Muzakky - Portfolio">
+	<section class="min-h-[80vh] flex items-center bg-white">
+		<div class="container mx-auto px-4">
+		  <div class="grid md:grid-cols-2 gap-8 items-center">
+			<div class="text-left">
+			  <span class="font-semibold text-sky-600">Halo, saya</span>
+			  <h1 class="text-5xl md:text-6xl font-bold mt-2">FAWWAZ AFKAR MUZAKKY</h1>
+			  <p class="mt-4 text-lg text-gray-600 max-w-lg">Mahasiswa Informatika yang berfokus pada pengembangan web dan mobile, dengan pengalaman praktis menggunakan Laravel, Flutter, dan Ionic.</p>
+			  <div class="mt-8">
+				<a href="/FAWWAZ AFKAR MUZAKKY - CV.pdf" download class="bg-sky-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-sky-600 transition-transform transform hover:scale-105 inline-block">
+				  Unduh CV Saya
+				</a>
+			  </div>
+			</div>
+			
+			<div class="flex justify-center md:justify-end">
+			  <div class="w-80 h-80 rounded-full bg-gradient-to-br from-sky-100 to-indigo-200 overflow-hidden shadow-xl">
+				 <img src="/images/profile.png" alt="Foto Fawwaz Afkar Muzakky" class="object-cover">
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>
+  <section id="about" class="py-20">
+	<div class="container mx-auto px-4">
+	  <h2 class="text-4xl font-bold text-center mb-12">Tentang Saya & Keahlian</h2>
+	  <div class="grid md:grid-cols-2 gap-12 items-center">
+		<div>
+		  <h3 class="text-2xl font-semibold mb-4">Profil</h3>
+		  <p class="text-gray-600 leading-relaxed">Saya memiliki pemahaman yang baik dalam pengelolaan proyek TI, perancangan antarmuka pengguna, serta pengujian dan dokumentasi sistem. Saya terbiasa bekerja secara kolaboratif maupun mandiri, dengan kemampuan komunikasi teknis yang baik dan kedisiplinan tinggi. Saya juga tertarik dalam eksplorasi teknologi baru dan penerapan rekayasa perangkat lunak di dunia nyata.</p>
+		</div>
+		<div>
+		  <h3 class="text-2xl font-semibold mb-4">Hard & Software Skills</h3>
+		  <div class="flex flex-wrap gap-3">
+			<span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-medium">Laravel</span>
+			<span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-medium">Flutter</span>
+			<span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-medium">Ionic</span>
+			<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Figma</span>
+			<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">MySQL</span>
+			<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Firebase</span>
+			<span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-medium">Git</span>
+			<span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-medium">Postman</span>
+			<span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full font-medium">Web Programming</span>
+			<span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full font-medium">Mobile Programming</span>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  <section id="skills" class="py-20">
+	<div class="container mx-auto px-4">
+	  <h2 class="text-4xl font-bold text-center mb-16">Teknologi & Tools</h2>
+	  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		
+		<div class="flex items-start gap-4 p-4">
+		  <img src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel Logo" class="w-12 h-12">
+		  <div>
+			<h3 class="font-bold text-lg">Laravel</h3>
+			<p class="text-sm text-gray-600">Framework PHP untuk membangun aplikasi web yang kuat dan elegan dengan arsitektur MVC.</p>
+		  </div>
+		</div>
+  
+		<div class="flex items-start gap-4 p-4">
+		  <img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter Logo" class="w-12 h-12">
+		  <div>
+			<h3 class="font-bold text-lg">Flutter</h3>
+			<p class="text-sm text-gray-600">UI toolkit dari Google untuk membangun aplikasi mobile, web, dan desktop dari satu basis kode.</p>
+		  </div>
+		</div>
+  
+		<div class="flex items-start gap-4 p-4">
+		  <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma Logo" class="w-12 h-12">
+		  <div>
+			<h3 class="font-bold text-lg">Figma</h3>
+			<p class="text-sm text-gray-600">Alat desain kolaboratif berbasis web untuk merancang antarmuka (UI) dan pengalaman pengguna (UX).</p>
+		  </div>
+		</div>
+  
+		<div class="flex items-start gap-4 p-4">
+		  <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL Logo" class="w-12 h-12">
+		  <div>
+			<h3 class="font-bold text-lg">MySQL</h3>
+			<p class="text-sm text-gray-600">Sistem manajemen basis data relasional (RDBMS) yang populer untuk menyimpan dan mengelola data.</p>
+		  </div>
+		</div>
+  
+		<div class="flex items-start gap-4 p-4">
+		  <img src="https://cdn.simpleicons.org/git/F05032" alt="Git Logo" class="w-12 h-12">
+		  <div>
+			<h3 class="font-bold text-lg">Git</h3>
+			<p class="text-sm text-gray-600">Sistem kontrol versi terdistribusi untuk melacak perubahan kode selama pengembangan perangkat lunak.</p>
+		  </div>
+		</div>
+  
+		<div class="flex items-start gap-4 p-4">
+		  <img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase Logo" class="w-12 h-12">
+		  <div>
+			<h3 class="font-bold text-lg">Firebase</h3>
+			<p class="text-sm text-gray-600">Platform dari Google untuk membangun aplikasi web dan mobile, menyediakan backend-as-a-service.</p>
+		  </div>
+		</div>
+  
+	  </div>
+	</div>
+  </section>
+
+  <section id="projects" class="py-20 bg-gray-100">
+	<div class="container mx-auto px-4">
+	  <h2 class="text-4xl font-bold text-center mb-12">Project Showcase</h2>
+	  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		
+		{Array.isArray(repos) && repos.length > 0 ? (
+		  repos.map((repo) => (
+			<ProjectCard repo={repo} />
+		  ))
+		) : (
+		  <p class="col-span-full text-center text-gray-500">
+			Gagal memuat proyek dari GitHub atau belum ada proyek untuk ditampilkan.
+		  </p>
+		)}
+  
+	  </div>
+	  <div class="text-center mt-12">
+		<a href="https://github.com/FawwazAfkar" target="_blank" class="text-sky-600 font-semibold hover:underline">
+		  Lihat Semua Proyek di GitHub &rarr;
+		</a>
+	  </div>
+	</div>
+  </section>
+
+  <section id="experience" class="py-20 bg-gray-50">
+	<div class="container mx-auto px-4">
+	  <h2 class="text-4xl font-bold text-center mb-16">Pengalaman Saya</h2>
+	  <div class="max-w-4xl mx-auto relative border-l-2 border-sky-200 pl-10">
+  
+		<div class="mb-12 relative flex gap-6">
+		  <div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
+		  <div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
+			<img src="/images/logo-unsoed.png" alt="Logo Unsoed" class="w-12 h-12 object-contain">
+		  </div>
+		  <div>
+			<p class="text-sm text-gray-500">2024 - 2025</p>
+			<h3 class="text-xl font-semibold">Staff Divisi Minat dan Bakat</h3>
+			<p class="text-gray-700 font-medium">Himpunan Mahasiswa Informatika, Universitas Jenderal Soedirman</p>
+			<ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+			  <li>Menjabat sebagai Penanggung Jawab program kerja Informatics Army - E-Sport.</li>
+			  <li>Memfasilitasi tim untuk mengikuti turnamen e-sport lokal dan berhasil meraih juara 2.</li>
+			</ul>
+		  </div>
+		</div>
+		
+		<div class="mb-12 relative flex gap-6">
+		  <div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
+		  <div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
+			<img src="/images/logo-dinas.png" alt="Logo Dinas Arsip" class="w-12 h-12 object-contain">
+		  </div>
+		  <div>
+			<p class="text-sm text-gray-500">Juli 2024 - Agustus 2024</p>
+			<h3 class="text-xl font-semibold">Staff bidang P3K, Pegawai Magang</h3>
+			<p class="text-gray-700 font-medium">Dinas Arsip dan Perpustakaan Daerah Kabupaten Banyumas</p>
+			 <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+			  <li>Merancang desain antarmuka untuk aplikasi pengelolaan arsip vital.</li>
+			  <li>Melakukan penyesuaian antarmuka berdasarkan hasil evaluasi user testing.</li>
+			</ul>
+		  </div>
+		</div>
+
+		<div class="mb-12 relative flex gap-6">
+			<div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
+			<div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
+			  <img src="/images/logo-unsoed.png" alt="Logo Unsoed" class="w-12 h-12 object-contain">
+			</div>
+			<div>
+			  <p class="text-sm text-gray-500">September 2024 - Desember 2024</p>
+			  <h3 class="text-xl font-semibold">Asisten Laboratorium Informatika</h3>
+			  <p class="text-gray-700 font-medium">Universitas Jenderal Soedirman</p>
+			  <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+				<li>Mengajar HTML, CSS, JavaScript, dan PHP untuk pengembangan web dinamis.</li>
+				<li>Memperkenalkan Figma untuk perancangan UI dan penggunaan Laragon/XAMPP.</li>
+			  </ul>
+			</div>
+		</div>
+		
+		<div class="mb-12 relative flex gap-6">
+			<div class="absolute w-6 h-6 bg-sky-500 rounded-full -left-[52px] mt-1.5 border-4 border-white"></div>
+			<div class="flex-shrink-0 w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm">
+			  <img src="/images/logo-unsoed.png" alt="Logo Unsoed" class="w-12 h-12 object-contain">
+			</div>
+			<div>
+			  <p class="text-sm text-gray-500">Februari 2024 - Juni 2024</p>
+			  <h3 class="text-xl font-semibold">Asisten Laboratorium Informatika</h3>
+			  <p class="text-gray-700 font-medium">Universitas Jenderal Soedirman</p>
+			  <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+				<li>Mengajarkan konsep dasar command line Windows dan pengoperasian Linux.</li>
+				<li>Bertanggung jawab atas manajemen sesi praktikum dan pelaksanaan ujian praktik.</li>
+			  </ul>
+			</div>
+		</div>
+
+		</div>
+	</div>
+  </section>
+  <section id="certificates" class="py-20">
+	<div class="container mx-auto px-4">
+	  <h2 class="text-4xl font-bold text-center mb-16">Sertifikasi & Pelatihan</h2>
+	  <div class="flex justify-center">
+		<div class="group">
+		  <a href="/certificates/tsacyber.png" target="_blank">
+			<img src="/certificates/tsacyber.png" alt="Sertifikat TSA Cyber Champion" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
+		  </a>
+		  <div class="mt-4 text-center">
+			<h3 class="font-semibold text-lg">TSA - Cyber Champion Talent Scouting Academy</h3>
+			<p class="text-gray-600">Pusbang Proserti KOMINFO, 2024</p>
+		  </div>
+		</div>
+		<div class="group ml-8">
+		<a href="/certificates/tsacyber.png" target="_blank">
+			<img src="/certificates/tsacyber.png" alt="Sertifikat TSA Coding" class="rounded-lg shadow-lg w-full max-w-md cursor-pointer transition-transform transform group-hover:scale-105">
+		</a>
+		  <div class="mt-4 text-center">
+			<h3 class="font-semibold text-lg">TSA - Coding Talent Scouting Academy</h3>
+			<p class="text-gray-600">Pusbang Proserti KOMINFO, 2024</p>
+		  </div>
+	  </div>
+	</div>
+  </section>
+  <section id="contact" class="py-20 bg-gray-50">
+	<div class="container mx-auto px-4 text-center">
+	  <h2 class="text-4xl font-bold">Mari Terhubung</h2>
+	  <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Saya terbuka untuk diskusi mengenai peluang magang atau kolaborasi proyek.</p>
+	  
+	  <div class="mt-8 flex justify-center gap-6">
+		
+		<a href="mailto:fawazafkarr@gmail.com" class="text-gray-600 hover:text-sky-500 transition-colors" title="Email">
+		  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+		</a>
+  
+		<a href="https://www.linkedin.com/in/fawwaz-afkar-muzakky" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-sky-500 transition-colors" title="LinkedIn">
+		  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+		</a>
+  
+		<a href="https://github.com/FawwazAfkar" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-sky-500 transition-colors" title="GitHub">
+		  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+		</a>
+  
+	  </div>
+	</div>
+  </section>
+
+  </Layout>
