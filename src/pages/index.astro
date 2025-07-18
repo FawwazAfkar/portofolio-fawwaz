@@ -3,28 +3,29 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
-interface GitHubRepo {
-  name: string;
-  html_url: string;
-  description: string | null; // description bisa jadi null
-  topics: string[];
-}
-
-let repos: GitHubRepo[] = []; // Inisialisasi sebagai array kosong
-try {
-    const response = await fetch('https://api.github.com/users/FawwazAfkar/repos?sort=updated&per_page=6');
-    if (response.ok) {
-        const data = await response.json();
-        // Pastikan data yang diterima adalah array
-        if (Array.isArray(data)) {
-            repos = data;
-        }
-    } else {
-        console.error('GitHub API request failed:', response.statusText);
-    }
-} catch (error) {
-    console.error('Failed to fetch from GitHub API:', error);
-}
+const myProjects = [
+  {
+    title: 'PRODUKINS',
+    description: 'Aplikasi Website yang dibuat sebagai ERP untuk Pengelolaan Produksi bagi Produsen Furniture.',
+    imgSrc: '/images/weberp.png', 
+    tags: ['Laravel', 'Filament', 'MySQL', 'JavaScript'],
+    repoUrl: 'https://github.com/FawwazAfkar/PRODUKINS'
+  },
+  {
+    title: 'Rent-A-Car',
+    description: 'Aplikasi berbasis web untuk Booking Sewa Mobil dengan fitur manajemen kendaraan dan transaksi.',
+    imgSrc: '/images/rentacar.png', 
+    tags: ['Laravel', 'PHP', 'MySQL', 'JavaScript'],
+    repoUrl: 'https://github.com/FawwazAfkar/rent-a-car' 
+  },
+  {
+    title: 'Alat Deteksi dini Banjir',
+    description: 'Sistem IoT untuk mendeteksi dini potensi banjir dengan sensor level air dan notifikasi melalui aplikasi mobile.',
+    imgSrc: '/images/iot.png', 
+    tags: ['C++', 'NodeMCU', 'IoT', 'Blynk'],
+    repoUrl: 'https://github.com/FawwazAfkar/H1D022067-C-PST2025/tree/main/WaterLevelSensor' 
+  }
+]
 ---
 <Layout title="Fawwaz Afkar Muzakky - Portfolio">
 	<section id="hero" class="min-h-[80vh] flex items-center bg-white">
@@ -134,23 +135,23 @@ try {
 
   <section id="projects" class="py-20 bg-gray-100">
 	<div class="container mx-auto px-4">
-	  <h2 class="text-4xl font-bold text-center mb-12">Project Showcase</h2>
+	  <h2 class="text-4xl font-bold text-center mb-16">Project Showcase</h2>
 	  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 		
-		{Array.isArray(repos) && repos.length > 0 ? (
-		  repos.map((repo) => (
-			<ProjectCard repo={repo} />
-		  ))
-		) : (
-		  <p class="col-span-full text-center text-gray-500">
-			⚠ Gagal memuat proyek dari GitHub, ketuk opsi dibawah untuk melihat semua proyek.
-		  </p>
-		)}
-  
+		{myProjects.map(project => (
+		  <ProjectCard
+			title={project.title}
+			description={project.description}
+			imgSrc={project.imgSrc}
+			tags={project.tags}
+			repoUrl={project.repoUrl}
+		  />
+		))}
+		
 	  </div>
-	  <div class="text-center mt-12">
-		<a href="https://github.com/FawwazAfkar" target="_blank" class="text-sky-600 font-semibold hover:underline">
-		  Lihat Semua Proyek di GitHub &rarr;
+	  <div class="text-center mt-16">
+		<a href="https://github.com/FawwazAfkar" target="_blank" rel="noopener noreferrer" class="text-sky-600 font-semibold hover:underline text-lg">
+		  Lihat Semua Proyek Lainnya di GitHub &rarr;
 		</a>
 	  </div>
 	</div>
